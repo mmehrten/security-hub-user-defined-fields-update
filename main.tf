@@ -91,7 +91,7 @@ resource "aws_lambda_function" "main" {
   source_code_hash = data.archive_file.main.output_base64sha256
   runtime          = "python3.10"
   layers           = ["arn:${var.partition}:lambda:${var.region}:${var.account-id}:layer:boto3:1"]
-  timeout          = 60
+  timeout          = 180
 }
 
 resource "aws_cloudwatch_event_rule" "main" {
